@@ -10,15 +10,6 @@ const baseUrl = "https://coinranking1.p.rapidapi.com";
 const createRequest = (url) => ({
   url,
   headers: cryptoApiHeaders,
-  params: {
-    referenceCurrencyUuid: "yhjMzLPhuIDl",
-    timePeriod: "24h",
-    tiers: "1",
-    orderBy: "marketCap",
-    orderDirection: "desc",
-    limit: "50",
-    offset: "0",
-  },
 });
 
 export const cryptoApi = createApi({
@@ -28,7 +19,24 @@ export const cryptoApi = createApi({
     getCryptos: builder.query({
       query: (count) => createRequest(`/coins?limit=${count}`),
     }),
+
+    getCryptoDetails: builder.query({
+      query: (coinId) => createRequest(`/coin/${coinId}`),
+    }),
+
+    getCryptoHistory: builder.query({
+      query: (coinId, timePeriod) =>
+        createRequest(
+          `/coin/Qwsogvtv82FCd/history?referenceCurrencyUuid=yhjMzLPhuID&timePeriod=24h`
+        ),
+    }),
   }),
 });
 
-export const { useGetCryptosQuery } = cryptoApi;
+//https://coinranking1.p.rapidapi.com/coin/Qwsogvtv82FCd/history?referenceCurrencyUuid=yhjMzLPhuID&timePeriod=24h
+
+export const {
+  useGetCryptosQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoApi;
