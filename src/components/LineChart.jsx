@@ -32,7 +32,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const LineChart = ({ currentPrice, coinName, coinId, timePeriod }) => {
@@ -97,7 +97,7 @@ const LineChart = ({ currentPrice, coinName, coinId, timePeriod }) => {
 
   const options = {
     scales: {
-      yAxes: [
+      yAxis: [
         {
           ticks: {
             beginAtZero: true,
