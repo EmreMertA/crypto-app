@@ -11,7 +11,7 @@ import {
 import icon from "../images/crypto.png";
 
 const NavBar = () => {
-  const [activeMenu, setActiveMenu] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(false);
   const [screenSize, setScreenSize] = useState(null);
 
   useEffect(() => {
@@ -53,7 +53,6 @@ const NavBar = () => {
             <Link to="/cryptocurrencies">Cryptocurrencies</Link>
           </Menu.Item>
 
-         
           <Menu.Item icon={<BulbOutlined />}>
             <Link to="/news">News</Link>
           </Menu.Item>
